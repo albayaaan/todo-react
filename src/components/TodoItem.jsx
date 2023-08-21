@@ -1,4 +1,4 @@
-const TodoItem = ({ todo, toggleCompleted }) => {
+const TodoItem = ({ todo, toggleCompleted, deleteButton }) => {
     const getTodoTitleStyle = () => {
         return todo.completed
             ? { textDecoration: "line-through" }
@@ -13,6 +13,14 @@ const TodoItem = ({ todo, toggleCompleted }) => {
                 onChange={() => toggleCompleted(todo.id)}
             />
             <p style={getTodoTitleStyle()}>{todo.title}</p>
+            <button
+                style={styles.button}
+                onClick={() => {
+                    deleteButton(todo.id);
+                }}
+            >
+                x
+            </button>
         </div>
     );
 };
@@ -29,6 +37,16 @@ const styles = {
         marginRight: "10px",
         height: "18px",
         width: "18px",
+    },
+    button: {
+        backgroundColor: "#BB0000",
+        color: "#fff",
+        height: "30px",
+        width: "30px",
+        borderRadius: "100%",
+        border: "none",
+        cursor: "pointer",
+        fontSize: "16px",
     },
 };
 
