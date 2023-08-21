@@ -1,4 +1,4 @@
-const TodoItem = ({ todo, toggleCompleted, deleteButton }) => {
+const TodoItem = ({ todo, toggleCompleted, deleteTodo }) => {
     const getTodoTitleStyle = () => {
         return todo.completed
             ? { textDecoration: "line-through" }
@@ -16,7 +16,7 @@ const TodoItem = ({ todo, toggleCompleted, deleteButton }) => {
             <button
                 style={styles.button}
                 onClick={() => {
-                    deleteButton(todo.id);
+                    deleteTodo(todo.id);
                 }}
             >
                 x
@@ -30,8 +30,9 @@ const styles = {
         border: "2px solid #f4f4f4",
         fontSize: "24px",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "space-between",
         alignItems: "center",
+        padding: "0 20px",
     },
     checkbox: {
         marginRight: "10px",
